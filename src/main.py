@@ -1,9 +1,11 @@
 from enquiry import enquiry
+from menu import menu
 
 
 #main functioin
 flag=0
 while(flag==0):
+    print()
     print("____________  Enter:     bill new item  ____________")
     print("________________  9:     menu  _____________________")
     print("________________  0:     exit application  _________")
@@ -11,7 +13,7 @@ while(flag==0):
 
     match n:
         case "9":
-            print("menu")
+            menu()
         case "0":
             flag=1
         case _:
