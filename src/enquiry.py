@@ -3,8 +3,9 @@ import sys
 import os
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 sys.path.append(data_dir)
-
 from data import inventory
+#end importing files from other folders 
+
 from clear_screen import clear_screen
 
 
