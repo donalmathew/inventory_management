@@ -1,0 +1,4 @@
+- we can add this to /bin to execute this program in a new terminal, 
+thereby making this an application that can be called via dmenu
+
+- first bill generation, then asking whether it is okay, then deleting values from database
