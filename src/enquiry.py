@@ -5,13 +5,21 @@ data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 sys.path.append(data_dir)
 
 from data import inventory
+from clear_screen import clear_screen
+
 
 #print(data.inventory["000"]["items"]["000"]["name"])
 
 
 def enquiry():
-    print("\n ___ 1: id based search ___\n ___ 2: manual search ___ \n ___ 0: exit ___\n")
-    e=input()
+    print("\n ___ 1: id based search ___\n ___ 2: manual search ___ \n ___ 0: go back ___\n")
+    
+    print()
+    e=input("Enter selection: ")
+    print()
+
+    #clear screen
+    clear_screen()
 
 
 
@@ -59,16 +67,46 @@ def enquiry():
         case "2":
 
             #listing item
+            print("__________SECTIONS__________")
             for key,value in inventory.items():
                 print(key," : ",value["name"])
 
             print()
+            print("                   0: exit")
+
             print()
-            section=input("enter section number")
+            print()
+            section=input("enter section number:  ")
+            clear_screen()
 
-            for key,value in inventory[section]["items"].items():
-                print(key," : ",value["name"])
+            #print sections
+            print()
+            print("____________ SUB-SECTIONS ___________")
+            if section!="0":
+                for key,value in inventory[section]["items"].items():
+                    print(key," : ",value["name"])
 
+                print()
+                print("                   0: exit")
+                
+
+                #sub-sections:
+                subsection=input("enter sub-section number:  ")
+                clear_screen()
+
+                print()
+                print("____________ COLORS ___________")
+                if subsection!="0":
+                    for key,value in inventory[section]["items"][subsection]["color"].items():
+                        print(key," : ",value["color-name"]," - ",value["quantity"])
+            
+            #go-back confirmation
+            print()
+            input("<-- go back? ")
+            clear_screen()
+           
+
+    
 
 #test(to remove)
-enquiry()
+#enquiry()
