@@ -1,0 +1,2 @@
+copy the billing.sh file after correcting the path to your main file, and paste
+it in any executable folders from $PATH (like /bin)
