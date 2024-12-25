@@ -1,9 +1,17 @@
 #importing from files from other folders
 import sys
 import os
-data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
-sys.path.append(data_dir)
-from data import inventory
+# data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
+# sys.path.append(data_dir)
+# from data import inventory
+
+#importing as json
+import json
+file_path="../data/inventory.json"
+with open(file_path, "r") as file:
+    inventory = json.load(file)
+
+
 #end importing files from other folders 
 
 from clear_screen import clear_screen

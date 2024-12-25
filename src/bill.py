@@ -3,7 +3,20 @@ import sys
 import os
 data_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '../data'))
 sys.path.append(data_dir)
-from data import inventory
+
+#importing data so as to change the value in the source file
+# import copy
+# from data import inventory
+# inventory=copy.deepcopy(inventory)
+
+
+#importing as json
+import json
+file_path="../data/inventory.json"
+with open(file_path, "r") as file:
+    inventory = json.load(file)
+
+
 #end importing files from other folders 
 
 #other imports
@@ -20,10 +33,8 @@ customer_contact_num=""
 #--------------------------------------------------------------------------
 #function starts
 def bill():
-
+  
     
-    
-
     #adding items to bill
     flag=1
     while(flag==1):
@@ -92,17 +103,17 @@ def bill():
     #--------------------------------------------------------------------------
 
     #displaying the bill to make sure to continue with it
-    print("___________________________________________________")
-    for key,value in bill_items.items():
-        #printing name, price and quantity of the item
-        #extracting name,price and quantuty from data:
-        item_name=inventory[key[:3]]["items"][key[3:6]]["name"]
-        item_price=inventory[key[:3]]["items"][key[3:6]]["price"]
-        item_quantity=inventory[key[:3]]["items"][key[3:6]]["color"][key[6:]]["quantity"]
-        #printing name, price and quantity
-        print(counter,"       ",item_name,"-",item_color,"       ",item_price,"      x",value)
-    print("                      total: ",final_price)
-    print("___________________________________________________")
+    # print("___________________________________________________")
+    # for key,value in bill_items.items():
+    #     #printing name, price and quantity of the item
+    #     #extracting name,price and quantuty from data:
+    #     item_name=inventory[key[:3]]["items"][key[3:6]]["name"]
+    #     item_price=inventory[key[:3]]["items"][key[3:6]]["price"]
+    #     item_quantity=inventory[key[:3]]["items"][key[3:6]]["color"][key[6:]]["quantity"]
+    #     #printing name, price and quantity
+    #     print(counter,"       ",item_name,"-",item_color,"       ",item_price,"      x",value)
+    # print("                      total: ",final_price)
+    # print("___________________________________________________")
     
     #confirmation for printing and making cahnges to database
     print()
@@ -123,7 +134,8 @@ def bill():
             return
 
 
-
+    #delete current bill items
+    bill_items={}
     #end message
     input("<-- go back?")
 
@@ -136,12 +148,22 @@ def customerDetails():
     #check for 10 digits, and put this in a loop to correct the number if typed wrongly
 
 def dataChange():
+
+
     #extracting name,price and quantuty from data:
     for key,value in bill_items.items():
         global item_quantity
         item_quantity=inventory[key[:3]]["items"][key[3:6]]["color"][key[6:]]["quantity"]
         #changing values:
-        item_quantity=str(int(item_quantity)-int(value))      
+        new_quantity=max(0,int(item_quantity)-int(value))
+
+        # Update nested dictionary
+        inventory[key[:3]]["items"][key[3:6]]["color"][key[6:]]["quantity"] = str(new_quantity)      
+
+
+        #writing to json file
+        with open(file_path, "w") as file:
+            json.dump(inventory, file, indent=4)
 
 
 
@@ -157,8 +179,6 @@ def billFile():
     os.makedirs(folder_path, exist_ok=True)
 
     #extract the necessary details
-    
-
 
     # Write to the file
     with open(file_path, 'w') as file:
