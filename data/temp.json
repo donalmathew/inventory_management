@@ -1,0 +1,68 @@
+{
+    "000": {
+        "name": "saree",
+        "items": {
+            "000": {
+                "name": "banarasi",
+                "price": "1000",
+                "color": {
+                    "00": {
+                        "color-name": "yellow",
+                        "quantity": "0"
+                    },
+                    "01": {
+                        "color-name": "red",
+                        "quantity": "3"
+                    }
+                }
+            },
+            "001": {
+                "name": "chiffon",
+                "price": "2000",
+                "color": {
+                    "00": {
+                        "color-name": "yellow",
+                        "quantity": "3"
+                    },
+                    "01": {
+                        "color-name": "red",
+                        "quantity": "2"
+                    }
+                }
+            }
+        }
+    },
+    "001": {
+        "name": "churidar",
+        "items": {
+            "000": {
+                "name": "anarkali",
+                "price": "1000",
+                "color": {
+                    "00": {
+                        "color-name": "yellow",
+                        "quantity": "3"
+                    },
+                    "01": {
+                        "color-name": "red",
+                        "quantity": "3"
+                    }
+                }
+            },
+            "001": {
+                "name": "salwar",
+                "price": "2000",
+                "color": {
+                    "00": {
+                        "color-name": "yellow",
+                        "quantity": "3"
+                    },
+                    "01": {
+                        "color-name": "red",
+                        "quantity": "2"
+                    }
+                }
+            }
+        }
+    }
+}

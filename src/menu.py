@@ -1,4 +1,5 @@
 from enquiry import enquiry
+from add import add
 from clear_screen import clear_screen
 
 def menu():
@@ -15,5 +16,7 @@ def menu():
     clear_screen()
 
     match(m):
+        case "1":
+            add()
         case "3":
             enquiry()

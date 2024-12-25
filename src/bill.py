@@ -171,7 +171,7 @@ def billFile():
     import os
 
     # Define the relative path
-    folder_path = '../bill_generated'
+    folder_path = "../bill_generated"
     file_name = customer_contact_num+".txt"
     file_path = os.path.join(folder_path, file_name)
 
