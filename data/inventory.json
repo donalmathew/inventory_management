@@ -29,6 +29,11 @@
                         "quantity": "2"
                     }
                 }
+            },
+            "002": {
+                "name": "cotton",
+                "price": "2001",
+                "color": {}
             }
         }
     },

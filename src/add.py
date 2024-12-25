@@ -20,8 +20,8 @@ def add():
 
         if a=="1":
             new_class()
-        # elif a=="2":
-        #     new_item()
+        elif a=="2":
+            new_item()
         # elif a=="3":
         #     inc_quant()
         else:
@@ -47,4 +47,35 @@ def new_class():
     
     print()
     print("class added successfully....")
+    input("<-- return to menu? ")
+
+
+
+def new_item():
+
+    print()
+    #print all the existing classes
+    class_names=list(inventory.keys())
+    for x in class_names:
+        print(x,":",inventory[x]["name"])
+
+    class_id=input("enter class id")
+    name=input("enter item name: ")
+    price=input("enter price: ")
+
+    last_key=list(inventory[class_id]["items"].keys())[-1]
+    new_key=str(int(last_key)+1).zfill(3)
+
+    inventory[class_id]["items"][new_key]={
+        "name":name,
+        "price":price,
+        "color":{}
+    }
+
+    #writing to json file
+    with open(file_path, "w") as file:
+        json.dump(inventory, file, indent=4)
+    
+    print()
+    print("item added successfully....")
     input("<-- return to menu? ")
