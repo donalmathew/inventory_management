@@ -1,5 +1,5 @@
-999  : Customer Phone number
+1234567890  : Customer Phone number
 ___________________________________________________
-1       banarasi-yellow       1000      x1
+1       banarasi-red       1000      x1
                       total: 1000
 ___________________________________________________
